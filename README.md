@@ -65,6 +65,6 @@ Banco de dados
 Como acessar o client do MySQL:
 
 	
-	JDBC URL: jdbc:mysql://localhost:3306/treinamentoindra
-    Usuário: root
-	Senha: vertrigo
+JDBC URL: jdbc:mysql://31.220.109.68:3306/treinamentoindra
+Usuário: treinamentoindra
+Senha: treinamentoindra
