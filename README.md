@@ -1,7 +1,7 @@
 **SOBRE O QUE É O PROJETO?**
 ========================================================================
 O objetivo do projeto é servir de base para o treinamento de "Formação Java/Angular para Jovens Profissionais", da Indra, unidade de João Pessoa, 
-ministrado por Eder Ferreira (efmendes@indracompany.com) e Arthur Leony (aldantas@indracompany.com)
+ministrado por Eder Ferreira (efmendes@indracompany.com) e Rafael Ferreira (rferreiraa@indracompany.com)
 
 
 **Conteúdo do Treinamento**
