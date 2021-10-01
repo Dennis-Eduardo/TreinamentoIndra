@@ -10,7 +10,7 @@ import com.indracompany.treinamento.model.entity.ContaBancaria;
 
 public interface ContaBancariaRepository extends GenericCrudRepository<ContaBancaria, Long> {
 	
-	ContaBancaria findByAgenciaAndNumero(String agencia, String numero);
+	ContaBancaria findByAgenciaAndNumero(String agencia, String numero); //criar uma consulta no db na tabela contas que vai validar agencia e numero
 	
 	List<ContaBancaria> findByCliente(Cliente cli);
 	
