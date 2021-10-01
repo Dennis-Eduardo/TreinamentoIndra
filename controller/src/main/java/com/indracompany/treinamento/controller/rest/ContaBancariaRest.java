@@ -18,7 +18,11 @@ import com.indracompany.treinamento.model.dto.DepositoDTO;
 import com.indracompany.treinamento.model.dto.SaqueDTO;
 import com.indracompany.treinamento.model.dto.TransferenciaBancariaDTO;
 import com.indracompany.treinamento.model.entity.ContaBancaria;
+import com.indracompany.treinamento.model.entity.OperacaoConta;
 import com.indracompany.treinamento.model.service.ContaBancariaService;
+import com.indracompany.treinamento.model.service.ExtratoService;
+
+import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("rest/contas")
@@ -26,6 +30,9 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	
 	@Autowired
 	private ContaBancariaService contaBancariaService;
+	
+	@Autowired
+	private ExtratoService extratoService;
 	
 	@GetMapping(value = "/consultar-saldo/{agencia}/{conta}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<Double> consultarSaldo(@PathVariable String agencia, @PathVariable String conta) {
@@ -44,14 +51,14 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	
 	@PostMapping(value = "/deposito", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<Void> depositar(@RequestBody DepositoDTO dto){
-		contaBancariaService.depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		contaBancariaService.depositar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), false);
 		return new ResponseEntity<>(HttpStatus.OK);
 		
 	}
 	
 	@PostMapping(value = "/saque", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<Void> sacar(@RequestBody SaqueDTO dto){
-		contaBancariaService.sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor());
+		contaBancariaService.sacar(dto.getAgencia(), dto.getNumeroConta(), dto.getValor(), false);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -60,4 +67,14 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		contaBancariaService.transferir(dto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/emitir-extrato/{agencia}/{numConta}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public @ResponseBody ResponseEntity<List<OperacaoConta>> emitirExtrato(final @ApiParam("Número da agência") @PathVariable String agencia, final @ApiParam("Número da conta") @PathVariable String numConta){
+		
+		List<OperacaoConta> extrato = extratoService.obterExtrato(agencia, numConta);
+		return new ResponseEntity<>(extrato, HttpStatus.OK);
+	}
+	
+	
+	
 }
