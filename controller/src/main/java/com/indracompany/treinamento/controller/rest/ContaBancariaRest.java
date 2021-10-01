@@ -68,6 +68,7 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	//emitirExtrato
 	@GetMapping(value = "/emitir-extrato/{agencia}/{numConta}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public @ResponseBody ResponseEntity<List<OperacaoConta>> emitirExtrato(final @ApiParam("Número da agência") @PathVariable String agencia, final @ApiParam("Número da conta") @PathVariable String numConta){
 		

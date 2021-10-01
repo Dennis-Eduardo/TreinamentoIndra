@@ -34,7 +34,7 @@ public class ContaBancaria extends GenericEntity<Long>{
 	@Column(nullable = false)
 	private double saldo;
 	
-	@ManyToOne  //relacionamento com o cliente  / muitos para um
+	@ManyToOne  //relacionamento com o cliente  / muitos para 1
 	@JoinColumn(name = "fk_cliente_id", nullable = false)
 	private Cliente cliente;
 

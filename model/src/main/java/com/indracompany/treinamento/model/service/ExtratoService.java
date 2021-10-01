@@ -14,7 +14,7 @@ import com.indracompany.treinamento.model.repository.ExtratoBancarioRepository;
 public class ExtratoService extends GenericCrudService<OperacaoConta, Long, ExtratoBancarioRepository>{
 	
 	
-	@Autowired
+	@Autowired 
 	private ExtratoBancarioRepository extratoBancarioRepository;
 	
 	
@@ -26,6 +26,8 @@ public class ExtratoService extends GenericCrudService<OperacaoConta, Long, Extr
 		
 		
 		}
+	
+	// emitindo com datas
 	
 	public List<OperacaoConta> emitirExtratoComData(String agencia, String conta, String dataInicio, String dataFim){
 		
