@@ -41,9 +41,12 @@ public class OperacaoConta extends GenericEntity<Long>{
 	@Column(name = "conta", nullable = false)
 	private String conta;
 	
-	// 'C' para credito  'D' para debito
+	// 'depositar', 'saque' e 'transferencia' 
 	@Column(name = "operacao", nullable = false)
 	private String operacao;
+	
+	@Column(length = 100)
+	private String observacao;
 	
 	@Column(name = "valor", nullable = false)
 	private double valor;
@@ -53,8 +56,8 @@ public class OperacaoConta extends GenericEntity<Long>{
 	@Column(name = "data")
 	private Date data;
 	
-	@Column(name = "dataView")
-	private String dataView;
+	@Column(name = "dataHora")
+	private String dataHora;
 	
 	@Column(name = "contaOrigem", nullable = true)
 	private String contaOrigem;

@@ -1,6 +1,5 @@
 package com.indracompany.treinamento.model.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +26,8 @@ public class ExtratoService extends GenericCrudService<OperacaoConta, Long, Extr
 		
 		}
 	
-	// emitindo com datas
 	
-	public List<OperacaoConta> emitirExtratoComData(String agencia, String conta, String dataInicio, String dataFim){
-		
-		Date dataA = Date.valueOf(dataInicio);
-		Date dataB = Date.valueOf(dataFim);
-		
-		
-		
-		List<OperacaoConta> extrato = repository.findByAgenciaAndContaAndDataBetween(agencia, conta, dataA, dataB);
-		
-		return extrato;
-	}
+	
+	
 
 }

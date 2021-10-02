@@ -33,7 +33,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	Date data = new Date();
 	SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-	//.
+	
 
 	public double consultarSaldo(String agencia, String numeroConta) {
 		ContaBancaria c = this.consultarConta(agencia, numeroConta);
@@ -61,15 +61,16 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		
 		if(!ehTransf) {
 			fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
-			String dataView = fmt.format(data);
+			String dataHora = fmt.format(data);
 			OperacaoConta ext = new OperacaoConta();
 			ext.setAgencia(agencia);
 			ext.setConta(numeroConta);
 			ext.setCliente(conta.getCliente());
 			ext.setOperacao("depositar");
+			ext.setObservacao("Deposito efetuado");
 			ext.setValor(valor);
 			ext.setSaldo(conta.getSaldo());
-			ext.setDataView(dataView);
+			ext.setDataHora(dataHora);
 			extrato.salvar(ext);
 		}
 		
@@ -88,15 +89,16 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 		if(!ehTransf) {
 			fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
-			String dataView = fmt.format(data);
+			String dataHora = fmt.format(data);
 			OperacaoConta ext = new OperacaoConta();
 			ext.setAgencia(agencia);
 			ext.setConta(numeroConta);
 			ext.setCliente(conta.getCliente());
 			ext.setOperacao("saque");
+			ext.setObservacao("Saque efetuado");
 			ext.setValor(valor);
 			ext.setSaldo(conta.getSaldo());
-			ext.setDataView(dataView);
+			ext.setDataHora(dataHora);
 			extrato.salvar(ext);
 		}
 		
@@ -116,7 +118,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		ContaBancaria contaDestino = this.consultarConta(dto.getAgenciaDestino(), dto.getNumeroContaDestino());
 
 		fmt.setTimeZone(TimeZone.getTimeZone("GMT-3:00"));
-		String dataView = fmt.format(data);
+		String dataHora = fmt.format(data);
 
 		OperacaoConta operacaoOrigem = new OperacaoConta();
 
@@ -124,11 +126,12 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		operacaoOrigem.setConta(dto.getNumeroContaOrigem());
 		operacaoOrigem.setCliente(conta.getCliente());
 		operacaoOrigem.setOperacao("transferencia");
+		operacaoOrigem.setObservacao("Transferencia efetuada com sucesso para:  Agencia " + dto.getAgenciaDestino() + "Conta " + dto.getNumeroContaDestino());
 		operacaoOrigem.setValor(dto.getValor());
 		operacaoOrigem.setSaldo(conta.getSaldo());
 		operacaoOrigem.setContaOrigem(dto.getAgenciaOrigem() + " " + dto.getNumeroContaOrigem());
 		operacaoOrigem.setContaDestino(dto.getAgenciaDestino() + " " + dto.getNumeroContaDestino());
-		operacaoOrigem.setDataView(dataView);
+		operacaoOrigem.setDataHora(dataHora);
 		extrato.salvar(operacaoOrigem);
 
 		OperacaoConta operacaoDestino = new OperacaoConta();
@@ -137,11 +140,12 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		operacaoDestino.setConta(dto.getNumeroContaDestino());
 		operacaoDestino.setCliente(contaDestino.getCliente());
 		operacaoDestino.setOperacao("transferencia");
+		operacaoDestino.setObservacao("Transferencia efetuada com sucesso para: Agencia " + dto.getAgenciaDestino() + " Conta " + dto.getNumeroContaDestino());
 		operacaoDestino.setValor(dto.getValor());
 		operacaoDestino.setSaldo(contaDestino.getSaldo());
 		operacaoDestino.setContaOrigem(dto.getAgenciaOrigem() + " " + dto.getNumeroContaOrigem());
 		operacaoDestino.setContaDestino(dto.getAgenciaDestino() + " " + dto.getNumeroContaDestino());
-		operacaoDestino.setDataView(dataView);
+		operacaoDestino.setDataHora(dataHora);
 		extrato.salvar(operacaoDestino);
 
 	}
