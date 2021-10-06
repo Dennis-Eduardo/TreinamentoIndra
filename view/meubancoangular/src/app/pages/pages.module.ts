@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
+import { ListagemContasComponent } from './contas/listagem-contas/listagem-contas.component';
 
 
 
 @NgModule({
   declarations: [
     ListagemClientesComponent,
-    CadastroEdicaoClientesComponent
+    CadastroEdicaoClientesComponent,
+    ListagemContasComponent
   ],
   imports: [
     BrowserModule,
