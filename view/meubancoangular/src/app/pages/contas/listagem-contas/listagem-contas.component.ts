@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IConta } from 'src/app/interface/conta';
 import { ContasService } from 'src/app/services/contas.service';
 
 @Component({
@@ -8,13 +9,16 @@ import { ContasService } from 'src/app/services/contas.service';
 })
 export class ListagemContasComponent implements OnInit {
 
-  contas: any[] = [];
+  contas: IConta[] = [];
   constructor(private contasService: ContasService) { }
 
   ngOnInit(): void {
-    this.contasService.listarTodasContas().subscribe((result: any) =>{
+    this.contasService.listarTodasContas().subscribe((result: IConta[]) =>{
       this.contas = result;
-    })
+    }, error => {
+      console.error(error)
+    }
+    )
   }
 
 }

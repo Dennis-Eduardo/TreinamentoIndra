@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h1 class="display-6"><i class="fas fa-comment-dollar text-warning"></i> Caixa Eletrônico - Transferência</h1>
+      <hr>
+      <form [formGroup]="formValue" (ngSubmit)="transferir()">
+        <div class="mb-3">
+          <label class="form-label">Agência de Destino</label>
+          <input formValuetype="text" class="form-control" formControlName= "agenciaDestino">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Agência de Origem</label>
+          <input formValuetype="text" class="form-control" formControlName= "agenciaOrigem">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Conta de Destino</label>
+          <input formValuetype="text" class="form-control" formControlName= "numeroContaDestino">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Conta de Origem</label>
+          <input formValuetype="text" class="form-control" formControlName= "numeroContaOrigem">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Valor</label>
+          <input formValuetype="text" class="form-control" formControlName= "valor">
+        </div>
+        <a routerLink='/clientes' class="btn btn-dark">Voltar</a>
+        <button [disabled]="!formValue.valid" type="submit" class="btn btn-warning mx-1">Depositar</button>
+      </form>
+
+      {{ formValue.value | json }}
+
+    </div>
+  </div>
+</div>

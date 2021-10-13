@@ -1,19 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IConta } from '../interface/conta';
+import { ISaqueDeposito } from '../interface/saque-deposito';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContasService {
-  endpoint = 'contas/';
+export class DepositoService {
+  endpoint = 'contas/deposito';
   api = environment.api;
 
   constructor(private http: HttpClient) { }
 
-  listarTodasContas(): Observable<IConta[]>{
-    return this.http.get<IConta[]>(`${this.api}/${this.endpoint}`);
+  deposito(depositar: ISaqueDeposito){
+    return this.http.post(`${this.api}/${this.endpoint}/`, depositar);
   }
 }

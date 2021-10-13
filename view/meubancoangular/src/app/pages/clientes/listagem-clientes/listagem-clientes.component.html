@@ -11,6 +11,7 @@
       <th scope="col">Nome</th>
       <th scope="col">E-mail</th>
       <th scope="col">Ativo</th>
+      <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +19,17 @@
       <th>{{cliente.id}}</th>
       <td>{{cliente.nome}}</td>
       <td>{{cliente.email}}</td>
-      <td>{{cliente.ativo}}</td>
+      <td>
+        <i *ngIf="cliente.ativo" class="fas fa-thumbs-up text-success"></i>
+        <i *ngIf="!cliente.ativo" class="fas fa-thumbs-down text-danger"></i>
+      </td>
+
+      <td>
+        <a [routerLink]="['editar', cliente.id]" class="btn btn-dark btn-sm">Editar</a>
+        <a (click)="confirmar(cliente.id)" class="btn btn-danger btn-sm mx-1">Remover</a>
+      </td>
+
+
     </tr>
 
   </tbody>
