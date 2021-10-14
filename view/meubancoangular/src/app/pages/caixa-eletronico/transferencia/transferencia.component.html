@@ -25,7 +25,7 @@
           <input formValuetype="text" class="form-control" formControlName= "valor">
         </div>
         <a routerLink='/clientes' class="btn btn-dark">Voltar</a>
-        <button [disabled]="!formValue.valid" type="submit" class="btn btn-warning mx-1">Depositar</button>
+        <button [disabled]="!formValue.valid" type="submit" class="btn btn-warning mx-1">Transferir</button>
       </form>
 
       {{ formValue.value | json }}

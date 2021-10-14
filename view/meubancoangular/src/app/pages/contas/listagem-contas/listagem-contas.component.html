@@ -12,6 +12,9 @@
       <th scope="col">Agencia</th>
       <th scope="col">Conta</th>
       <th scope="col">Saldo</th>
+      <th scope="col">Operação</th>
+
+
     </tr>
   </thead>
   <tbody>
@@ -21,6 +24,10 @@
       <td>{{conta.agencia}}</td>
       <td>{{conta.numero}}</td>
       <td>R$: {{conta.saldo}}</td>
+      <td>
+        <a [routerLink]="['emitir-extrato/', conta.agencia,conta.numero]"class="btn btn-warning btn-sm mx-1">Extrato</a>
+      </td>
+
     </tr>
 
   </tbody>

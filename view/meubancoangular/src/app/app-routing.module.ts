@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DepositoComponent } from './pages/caixa-eletronico/deposito/deposito.component';
+import { ExtratoComponent } from './pages/caixa-eletronico/extrato/extrato.component';
 import { SaqueComponent } from './pages/caixa-eletronico/saque/saque.component';
 import { TransferenciaComponent } from './pages/caixa-eletronico/transferencia/transferencia.component';
 import { CadastroEdicaoClientesComponent } from './pages/clientes/cadastro-edicao-clientes/cadastro-edicao-clientes.component';
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path: 'ATM/transferencia', component: TransferenciaComponent
+  },
+  {
+    path: 'contas/emitir-extrato/:agencia/:numConta', component: ExtratoComponent
   }
 ];
 
