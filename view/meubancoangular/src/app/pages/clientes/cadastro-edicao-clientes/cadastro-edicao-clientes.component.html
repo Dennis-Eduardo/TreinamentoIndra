@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-md-6">
       <h1 class="display-6"><i class="fas fa-address-card"></i>{{ formValue.get('id')?.value ? 'Edição': 'Cadastro'}} de Clientes
 
       </h1>
@@ -42,7 +42,7 @@
         <button [disabled]="!formValue.valid" type= "submit" class="btn btn-primary">Cadastrar</button>
       </form>
 
-      {{ formValue.value | json }}
+
 
     </div>
   </div>
