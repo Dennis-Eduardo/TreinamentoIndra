@@ -57,6 +57,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	public void depositar(String agencia, String numeroConta, double valor, boolean ehTransf) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
+		
 		conta.setSaldo(conta.getSaldo() + valor);
 		
 		if(!ehTransf) {
@@ -79,7 +80,7 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 
 	public void sacar(String agencia, String numeroConta, double valor, boolean ehTransf) {
 		ContaBancaria conta = this.consultarConta(agencia, numeroConta);
-
+		
 		if (conta.getSaldo() < valor) {
 			throw new AplicacaoException(ExceptionValidacoes.ERRO_SALDO_INEXISTENTE);
 		}

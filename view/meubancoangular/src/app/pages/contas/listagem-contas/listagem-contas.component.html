@@ -1,6 +1,6 @@
 <div class= "container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col">
       <h1 class="display-6"><i class="far fa-address-card"></i>  Listagem de Conta</h1>
 <hr>
 
@@ -23,7 +23,7 @@
       <td>{{conta.cliente.nome}}</td>
       <td>{{conta.agencia}}</td>
       <td>{{conta.numero}}</td>
-      <td>R$: {{conta.saldo}}</td>
+      <td>{{conta.saldo | currency}}</td>
       <td>
         <a [routerLink]="['emitir-extrato/', conta.agencia,conta.numero]"class="btn btn-warning btn-sm mx-1">Extrato</a>
       </td>
