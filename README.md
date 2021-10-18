@@ -63,13 +63,13 @@ Imagem do projeto
 
 
 
-#*Listagem de Clientes*
+# Listagem de Clientes
 
 ![web](https://github.com/Dennis-Eduardo/TreinamentoIndra/blob/main/imagens/L.%20clientes.png)
 
 
 
-# *Listagem de Conta*
+# Listagem de Conta
 
 
 
@@ -77,7 +77,7 @@ Imagem do projeto
 
 
 
-#*Página de Saque*
+# Página de Saque
 
 ![web](https://github.com/Dennis-Eduardo/TreinamentoIndra/blob/main/imagens/saque.png)
 
