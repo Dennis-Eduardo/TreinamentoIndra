@@ -23,7 +23,7 @@
       <td>{{conta.cliente.nome}}</td>
       <td>{{conta.agencia}}</td>
       <td>{{conta.numero}}</td>
-      <td>{{conta.saldo | currency}}</td>
+      <td>{{conta.saldo | currency:'BRL'}}</td>
       <td>
         <a [routerLink]="['emitir-extrato/', conta.agencia,conta.numero]"class="btn btn-warning btn-sm mx-1">Extrato</a>
       </td>
