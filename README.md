@@ -1,6 +1,6 @@
 **SOBRE O QUE É O PROJETO?**
 ========================================================================
-O projeto teve como objetivo servir de base para o treinamento de "Formação Java/Angular para Jovens Profissionais", da Indra, unidade de João Pessoa, ministrado por Eder Ferreira (efmendes@indracompany.com) e Arthur Leony (aldantas@indracompany.com). Esse projeto consistia em uma API de um banco, onde realizamos o CRUD  de contas bancárias, como as transações.  A partir dessa base passada para nós alunos, conseguimos implementar novas coisas na API e assim finalizando o back-end do projeto. Na segunda parte do projeto a gente fez a coneção com o front-end do projeto. Onde construimos todas as telas de operações e deixamos funcionais.
+O projeto teve como objetivo servir de base para o treinamento de "Formação Java/Angular para Jovens Profissionais", da Indra, unidade de João Pessoa, ministrado por Eder Ferreira (efmendes@indracompany.com) e Arthur Leony (aldantas@indracompany.com). Esse projeto consistia em uma API de um banco, onde realizamos o CRUD  de contas bancárias, como as transações.  A partir dessa base passada para nós alunos, conseguimos implementar novas coisas na API e assim finalizando o back-end do projeto. Na segunda parte do projeto a gente fez a conexão com o front-end do projeto. Onde construimos todas as telas de operações e deixamos funcionais usando tecnologias como: Angular, Bootstrap, Node, FontAwesome e SweetAlert2.
 
 
 **Conteúdo do Treinamento**
@@ -15,6 +15,11 @@ O projeto teve como objetivo servir de base para o treinamento de "Formação Ja
 - JPA (Hibernate) 
 - Spring Data 
 - MySQL
+- Angular
+- Bootstrap
+- Node
+- FontAwesome
+- SweetAlert2
 
 
 **COMO CONSTRUIR O AMBIENTE**
